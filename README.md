@@ -96,7 +96,17 @@ python eval/evaluate.py --with-llm --delay 4   # also grade full answers with yo
 
 **Results:** _run the commands above on your machine and paste the table here._
 Report the numbers you actually get. With 28 questions, a one-question difference is 3.6 points, so treat
-small gaps as noise, and add more questions (and a longer PDF via `--pdf`) before drawing conclusions.
+small gaps as noise, and add more questions (and a longer PDF via `--pdf`) before drawing conclusions.**Setup:** 1 PDF (5 pages, 9 chunks) · 20 answerable + 8 unanswerable questions · k=4 · all-MiniLM-L6-v2 · cross-encoder/ms-marco-MiniLM-L-6-v2
+
+| Metric | vector | BM25 | hybrid (α=0.6, RRF) | hybrid + cross-encoder |
+|---|---|---|---|---|
+| Recall@4 | 100% (20/20) | 100% (20/20) | 100% (20/20) | 100% (20/20) |
+| MRR | 0.975 | 1.000 | 1.000 | 1.000 |
+| Answerable kept by relevance threshold | 100% (20/20) | 100% (20/20) | 100% (20/20) | 100% (20/20) |
+| Unanswerable rejected by threshold | 25% (2/8) | 50% (4/8) | 25% (2/8) | 75% (6/8) |
+| Avg retrieval latency | 16 ms | 14 ms | 16 ms | 166 ms |
+
+**Takeaways:** the cross-encoder reranker was the only variant that reliably filtered off-topic queries (6/8 vs 2/8 for vector-only) without losing any answerable query, at ~150 ms extra latency. **Caveats:** with 9 chunks, Recall@4 is uninformative, and the 8 unanswerable questions are a small sample. A larger corpus and question set are needed before drawing stronger conclusions.
 
 ## Tests
 
