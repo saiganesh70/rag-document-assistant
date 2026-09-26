@@ -1,3 +1,12 @@
+website url:http://192.168.0.12:8501/
+project demo :<img width="900" height="499" alt="demo(1)" src="https://github.com/user-attachments/assets/48c5f943-f819-4177-b924-18872b78bcbd" />
+<img width="959" height="539" alt="rag 2" src="https://github.com/user-attachments/assets/f4e9f10a-2309-47ff-9a37-fc17246c033c" />
+<img width="959" height="539" alt="rag 3" src="https://github.com/user-attachments/assets/9e7bcffe-ecb3-4b64-9a1c-b59e6b872805" />
+<img width="955" height="539" alt="rag upload 1" src="https://github.com/user-attachments/assets/149768eb-a03b-4273-93f5-e8fae57abedb" />
+
+
+
+
 # 📄 RAG Document Assistant
 
 Ask questions about your PDFs and get answers grounded in the text, with page-level citations.
